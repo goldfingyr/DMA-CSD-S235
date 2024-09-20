@@ -24,11 +24,27 @@ namespace TelegramRazor.Pages
             myTest = ["Line1", "Line2", "Line3", "Line4"];
         }
 
+        private void Send2Telegram( string text)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.telegram.org/bot{{AccessToken}}/sendMessage");
+            var collection = new List<KeyValuePair<string, string>>();
+            collection.Add(new("chat_id", "{{ChatID}}"));
+            collection.Add(new("text", text));
+            var content = new FormUrlEncodedContent(collection);
+            request.Content = content;
+            var response = client.Send(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+
+        }
+
         /// <summary>
         /// OnPost is called when the browser issues a POST /
         /// </summary>
-        public void OnPost()
+        public void OnPost(string text2send)
         {
+            Send2Telegram(text2send);
         }
 
     }
