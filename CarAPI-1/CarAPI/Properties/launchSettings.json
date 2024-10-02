@@ -9,7 +9,7 @@
         "ConnectionString": "Data Source=localhost;Persist Security Info=True;User ID=sa;Password=@12tf56so"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:15000"
+      "applicationUrl": "http://localhost:50100"
     },
     "IIS Express": {
       "commandName": "IISExpress",
