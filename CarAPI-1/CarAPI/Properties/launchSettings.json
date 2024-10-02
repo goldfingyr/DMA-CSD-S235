@@ -9,7 +9,7 @@
         "ConnectionString": "Data Source=localhost;Persist Security Info=True;User ID=sa;Password=@12tf56so"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:50100"
+      "applicationUrl": "http://localhost:5177"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -18,6 +18,17 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_HTTP_PORTS": "8080",
+        "ConnectionString": "Data Source=localhost;Persist Security Info=True;User ID=sa;Password=@12tf56so"
+      },
+      "publishAllPorts": true,
+      "useSSL": false
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -25,7 +36,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:30747",
+      "applicationUrl": "http://localhost:18262",
       "sslPort": 0
     }
   }

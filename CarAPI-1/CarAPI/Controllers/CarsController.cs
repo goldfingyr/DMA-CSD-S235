@@ -34,7 +34,7 @@ namespace CarAPI.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private string createTable = "CREATE TABLE Cars (licensplate VARCHAR(16),make VARCHAR(128),model VARCHAR(128),color VARCHAR(128),PRIMARY KEY (licenseplate))";
+        private string createTable = "CREATE TABLE Cars (licensplate VARCHAR(16),make VARCHAR(128),model VARCHAR(128),color VARCHAR(128),PRIMARY KEY (licensplate))";
         // GET: api/Car
         /// <summary>
         /// Gets all cars in the table. Optional search arguments "make" and "color"
@@ -45,7 +45,7 @@ namespace CarAPI.Controllers
         [HttpGet]
         public IActionResult Get_ThisNameDoesNotMatter()
         {
-            using (var connection = new SqlConnection(System.Environment.GetEnvironmentVariable("ConnectionString")))
+            using (var connection = new SqlConnection("Data Source=localhost;Persist Security Info=True;User ID=sa;Password=@12tf56so"))
             {
                 connection.Open();
                 try
@@ -57,16 +57,16 @@ namespace CarAPI.Controllers
                 {
                     // It doesn't exist - create and add two cars
                     connection.Execute(createTable);
-                    connection.ExecuteScalar<Car>("INSERT INTO dbo.Cars (licenseplate,make,model,color) VALUES (@licenseplate, @make, @model, @color)", new
+                    connection.ExecuteScalar<Car>("INSERT INTO dbo.Cars (licensplate,make,model,color) VALUES (@licensplate, @make, @model, @color)", new
                     {
-                        licenseplate = "AA 12345",
+                        licensplate = "AA 12345",
                         make = "Toyota",
                         model = "Yaris",
                         color = "Silver"
                     });
-                    connection.ExecuteScalar<Car>("INSERT INTO dbo.Cars (licenseplate,make,model,color) VALUES (@licenseplate, @make, @model, @color)", new
+                    connection.ExecuteScalar<Car>("INSERT INTO dbo.Cars (licensplate,make,model,color) VALUES (@licensplate, @make, @model, @color)", new
                     {
-                        licenseplate = "BB 12345",
+                        licensplate = "BB 12345",
                         make = "Ford",
                         model = "Ka",
                         color = "Red"
