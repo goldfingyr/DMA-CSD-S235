@@ -33,7 +33,7 @@
             $.ajax({
                 type: "POST",
                 url: "?handler=ajax1",
-                data: { data: "ajax1" },
+                data: { data: "" },
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader("XSRF-TOKEN",
                         $('input:hidden[name="__RequestVerificationToken"]').val());
